@@ -11,6 +11,16 @@ const Biner = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const binary = e.target[0].value;
+    if (isNaN(binary)) {
+      alert("masukan angka");
+      return;
+    }
+    for (let i = 0; i < binary.length; i++) {
+      if (binary[i] !== "0" && binary[i] !== "1") {
+        alert("Input bilangan biner tidak valid");
+        return;
+      }
+    }
     setBiner(binary);
     binerToDecimal(binary);
     binerToOktal(binary);
@@ -40,67 +50,75 @@ const Biner = () => {
     setOktal(oktal);
   };
   const binerToHeksadecimal = (binary) => {
-    const hexLookup = {
-      "0000": "0",
-      "0001": "1",
-      "0010": "2",
-      "0011": "3",
-      "0100": "4",
-      "0101": "5",
-      "0110": "6",
-      "0111": "7",
-      1000: "8",
-      1001: "9",
-      1010: "A",
-      1011: "B",
-      1100: "C",
-      1101: "D",
-      1110: "E",
-      1111: "F",
-    };
-
-    let hex = "";
-    // Padd binary string with zeroes until its length is a multiple of 4
-    binary = binary.padStart(Math.ceil(binary.length / 4) * 4, "0");
-    // Group binary string into chunks of 4
-    const binaryChunks = binary.match(/.{1,4}/g);
-
-    // Convert each binary chunk to its corresponding hex value
-    for (let i = 0; i < binaryChunks.length; i++) {
-      hex += hexLookup[binaryChunks[i]];
+    let decimal = 0;
+    let i = 0;
+    while (binary != 0) {
+      let digit = binary % 10;
+      decimal += digit * Math.pow(2, i);
+      binary = Math.floor(binary / 10);
+      i++;
     }
+
+    let digits = [];
+    while (decimal != 0) {
+      let remainder = decimal % 16;
+      if (remainder < 10) {
+        digits.unshift(remainder);
+      } else {
+        digits.unshift(String.fromCharCode(remainder + 55));
+      }
+      decimal = Math.floor(decimal / 16);
+    }
+
+    let hex = digits.join("");
     setHexadecimal(hex);
   };
 
   return (
-    <main className="min-h-screen min-w-full flex flex-col justify-center items-center">
-      <div className="relative border border-sky-500 p-3 rounded-lg">
-        <Link
-          href={"/"}
-          className="absolute -top-7 right-0 rounded-md bg-red-500 px-2 text-white"
-        >
-          x
-        </Link>
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col justify-center items-center my-3"
-        >
-          <input
-            placeholder="binary"
-            defaultValue={binary}
-            className="border border-black rounded-lg text-center"
-          />
-          <button
-            type="submit"
-            className="border bg-sky-300 rounded-lg px-2 my-1 active:bg-sky-700"
+    <main className="min-h-screen min-w-full flex justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
+        <section className="border border-lime-700 flex flex-col justify-center items-center">
+          <h1 className="bg-lime-300 text-black w-full text-center font-mono font-semibold">
+            BINARY TO ALL
+          </h1>
+          <div className="bg-lime-900 p-3 font-mono">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col justify-center items-center mb-4 my-3"
+            >
+              <input
+                placeholder="binary number"
+                className="border border-black text-center rounded-sm"
+              />
+              <button
+                type="submit"
+                className="border border-slate-900 bg-lime-300 text-black rounded-sm px-2 my-1 active:bg-sky-700"
+              >
+                submit
+              </button>
+            </form>
+            <section className="text-white">
+              <div>{`binary = ${binary}`}</div>
+              <div>{`decimal = ${decimal}`}</div>
+              <div>{`oktal = ${oktal}`}</div>
+              <div>{`hexadecimal = ${hexadecimal}`}</div>
+            </section>
+          </div>
+        </section>
+        <section className="flex justify-between w-full mt-1 font-mono">
+          <Link
+            href={"/"}
+            className="rounded-sm bg-lime-500 px-2 border border-slate-700"
           >
-            submit
-          </button>
-        </form>
-        <div>{`binary = ${binary}`}</div>
-        <div>{`decimal = ${decimal}`}</div>
-        <div>{`oktal = ${oktal}`}</div>
-        <div>{`hexadecimal = ${hexadecimal}`}</div>
+            &larr; home
+          </Link>
+          <Link
+            href={"/decimal-112210010"}
+            className="rounded-sm bg-lime-500 px-2 border border-slate-700"
+          >
+            &larr; decimal to
+          </Link>
+        </section>
       </div>
     </main>
   );

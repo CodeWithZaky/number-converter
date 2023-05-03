@@ -1,23 +1,13 @@
-import Link from "next/link";
+import NavLink from "../../components/NavLink";
 
 export default function Home() {
-  const MenuItems = [
-    { route: "/decimal-112210010", title: "decimal" },
-    { route: "/binary-112210010", title: "binary" },
-  ];
-
   return (
-    <main className="min-w-full min-h-screen pt-2">
-      <div className="flex flex-col gap-2 w-full h-full">
-        {MenuItems.map((e, i) => {
-          return (
-            <div key={i}>
-              <Link href={e.route} className="border rounded-lg py-1 px-2 bg-slate-700 text-white">
-                {e.title}
-              </Link>
-            </div>
-          );
-        })}
+    <main className="min-w-screen min-h-screen flex flex-col items-center justify-center gap-2 text-lime-800 font-mono">
+      <h1 className="text-3xl text-center font-semibold">KONVERSI BILANGAN</h1>
+      <p className="text-2xl">Ahmad Zaky Ubaidillah</p>
+      <p className="text-xl">112210010</p>
+      <div className="flex flex-col sm:flex-row text-center border gap-2 mt-3">
+        <NavLink />
       </div>
     </main>
   );
