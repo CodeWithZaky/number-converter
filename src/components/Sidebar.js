@@ -17,7 +17,7 @@ const Sidebar = ({ classname }) => {
         "relative border-r-2 h-full flex flex-col items-start justify-start p-5 gap-7 text-lime-800 text-center"
       )}
     >
-      <div className="flex flex-col text-center gap-2">
+      <div className="flex flex-col text-center gap-2 text-lg tracking-widest">
         {MenuItems.map((e, i) => {
           return (
             <Link

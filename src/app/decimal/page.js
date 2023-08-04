@@ -53,10 +53,10 @@ const Decimal = () => {
 
   return (
     <section className="h-full w-[70%] mx-auto rounded-md border border-emerald-400 bg-emerald-900 flex flex-col justify-center items-center">
-      <h1 className="bg-emerald-800 text-slate-300 w-full py-4 mb-5 text-center font-mono font-semibold">
+      <h1 className="bg-emerald-800 text-slate-300 w-full py-4 mb-5 text-center font-semibold">
         DECIMAL TO ALL
       </h1>
-      <div className="w-full p-3 font-mono">
+      <div className="w-full p-3">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col justify-center items-start mb-4 my-3"
