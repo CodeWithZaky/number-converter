@@ -25,7 +25,7 @@ const Sidebar = ({ classname }) => {
               href={e.route}
               className={
                 pathname == e.route
-                  ? "text-red-500 transition-all text-start"
+                  ? "text-emerald-500 transition-all text-start"
                   : "text-black transition-all text-start"
               }
             >
