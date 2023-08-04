@@ -1,14 +1,22 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-const Sidebar = () => {
+import { BsShieldFillExclamation } from "react-icons/bs";
+import { clsx } from "clsx";
+
+const Sidebar = ({ classname }) => {
   const pathname = usePathname();
   const MenuItems = [
     { route: "/decimal", title: "decimal" },
     { route: "/binary", title: "binary" },
   ];
   return (
-    <main className="bg-green-500 h-full flex flex-col items-end justify-center py-5 gap-7 text-lime-800 text-center">
+    <main
+      className={clsx(
+        classname,
+        "relative border-r-2 h-full flex flex-col items-start justify-start p-5 gap-7 text-lime-800 text-center"
+      )}
+    >
       <div className="flex flex-col text-center gap-2">
         {MenuItems.map((e, i) => {
           return (
@@ -17,8 +25,8 @@ const Sidebar = () => {
               href={e.route}
               className={
                 pathname == e.route
-                  ? "rounded-r-sm px-20 py-2 bg-teal-900 text-white"
-                  : "px-20 py-2 bg-green-500 text-white"
+                  ? "text-red-500 transition-all text-start"
+                  : "text-black transition-all text-start"
               }
             >
               {e.title}
@@ -26,6 +34,7 @@ const Sidebar = () => {
           );
         })}
       </div>
+      <BsShieldFillExclamation className="absolute bottom-2 left-2 text-black text-xl hover:text-2xl cursor-pointer transition-all" />
     </main>
   );
 };

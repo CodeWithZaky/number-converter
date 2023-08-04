@@ -14,17 +14,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className="h-full">
-        <div className="container h-full w-full border border-red-500 mx-auto flex flex-col justify-between items-center">
-          <div className="w-full flex justify-between items-center">
+        <div className="container-none h-full w-full flex flex-col justify-between items-center">
+          <div className="w-full flex justify-between items-center bg-black text-white p-2">
             <h1 className="text-3xl text-center font-semibold">
               NUMBER CONVERTION
             </h1>
-            <p className="text-2xl">Ahmad Zaky Ubaidillah</p>
-            <p className="text-xl">112210010</p>
           </div>
           <div className="h-full w-full mx-auto flex justify-between items-center">
-            <Sidebar />
-            {children}
+            <Sidebar classname={"w-1/4"} />
+            <div className="w-3/4">{children}</div>
           </div>
         </div>
       </body>

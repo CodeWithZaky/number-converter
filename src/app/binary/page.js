@@ -75,52 +75,46 @@ const Biner = () => {
   };
 
   return (
-    <main className="h-full w-full flex justify-center items-center bg-teal-900">
-      <div className="flex flex-col justify-center items-center">
-        <section className="border border-lime-700 flex flex-col justify-center items-center">
-          <h1 className="bg-lime-300 text-black w-full text-center font-mono font-semibold">
-            BINARY TO ALL
-          </h1>
-          <div className="bg-lime-900 p-3 font-mono">
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col justify-center items-center mb-4 my-3"
-            >
-              <input
-                placeholder="binary number"
-                className="border border-black text-center rounded-sm"
-              />
-              <button
-                type="submit"
-                className="border border-slate-900 bg-lime-300 text-black rounded-sm px-2 my-1 active:bg-sky-700"
-              >
-                submit
-              </button>
-            </form>
-            <section className="text-white">
-              <p>{`binary = ${binary}`}</p>
-              <p>{`decimal = ${decimal}`}</p>
-              <p>{`oktal = ${oktal}`}</p>
-              <p>{`hexadecimal = ${hexadecimal}`}</p>
-            </section>
+    <section className="h-full w-[70%] mx-auto rounded-md border border-emerald-400 bg-emerald-900 flex flex-col justify-center items-center">
+      <h1 className="bg-emerald-800 text-slate-300 w-full py-4 mb-5 text-center font-mono font-semibold">
+        BINARY TO ALL
+      </h1>
+      <div className="w-full p-3 font-mono">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col justify-center items-start mb-4 my-3"
+        >
+          <input
+            placeholder="binary number"
+            className="w-full border py-2 border-black text-center rounded-sm"
+          />
+          <button
+            type="submit"
+            className="border py-1 border-slate-900 bg-emerald-500 text-black rounded-sm px-4 my-1 active:bg-sky-700"
+          >
+            submit
+          </button>
+        </form>
+        <div className="text-white my-10">
+          <div className="flex w-full border-y">
+            <p className="w-1/3">binary</p>
+            <p className="w-2/3">{`: ${binary}`}</p>
           </div>
-        </section>
-        <section className="flex justify-between w-full mt-1 font-mono">
-          <Link
-            href={"/"}
-            className="rounded-sm bg-lime-500 px-2 border border-slate-700"
-          >
-            &larr; home
-          </Link>
-          <Link
-            href={"/decimal-112210010"}
-            className="rounded-sm bg-lime-500 px-2 border border-slate-700"
-          >
-            &larr; decimal to
-          </Link>
-        </section>
+          <div className="flex w-full border-b">
+            <p className="w-1/3">oktal</p>
+            <p className="w-2/3">{`: ${oktal}`}</p>
+          </div>
+          <div className="flex w-full border-b">
+            <p className="w-1/3">decimal</p>
+            <p className="w-2/3">{`: ${decimal}`}</p>
+          </div>
+          <div className="flex w-full border-b">
+            <p className="w-1/3">hexadecimal</p>
+            <p className="w-2/3">{`: ${hexadecimal}`}</p>
+          </div>
+        </div>
       </div>
-    </main>
+    </section>
   );
 };
 
