@@ -2,84 +2,61 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const Biner = () => {
-  const [binary, setBiner] = useState(0);
+const Decimal = () => {
   const [decimal, setDecimal] = useState(0);
+  const [binary, setBiner] = useState(0);
   const [oktal, setOktal] = useState(0);
   const [hexadecimal, setHexadecimal] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const binary = e.target[0].value;
-    if (isNaN(binary)) {
-      alert("masukan angka");
+    let decimal = e.target[0].value;
+    if (isNaN(decimal)) {
+      alert("masukkan angka");
       return;
     }
-    for (let i = 0; i < binary.length; i++) {
-      if (binary[i] !== "0" && binary[i] !== "1") {
-        alert("Input bilangan biner tidak valid");
-        return;
-      }
-    }
-    setBiner(binary);
-    binerToDecimal(binary);
-    binerToOktal(binary);
-    binerToHeksadecimal(binary);
-  };
-  const binerToDecimal = (binary) => {
-    let decimal = 0;
-    let power = 0;
-    for (let i = binary.length - 1; i >= 0; i--) {
-      if (binary[i] === "1") {
-        decimal += Math.pow(2, power);
-      }
-      power++;
-    }
     setDecimal(decimal);
+    decimalToBiner(decimal);
+    decimalToOktal(decimal);
+    decimalToHexadecimal(decimal);
   };
-  const binerToOktal = (binary) => {
-    // konversi binary ke desimal terlebih dahulu
-    let desimal = parseInt(binary, 2);
+  const decimalToBiner = (decimal) => {
+    let binaryNumber = "";
+    while (decimal > 0) {
+      let remainder = decimal % 2;
+      binaryNumber = remainder + binaryNumber;
+      decimal = Math.floor(decimal / 2);
+    }
+    setBiner(binaryNumber);
+  };
+  const decimalToOktal = (decimal) => {
     let oktal = "";
-
-    // konversi desimal ke oktal
-    while (desimal > 0) {
-      oktal = (desimal % 8).toString() + oktal;
-      desimal = Math.floor(desimal / 8);
+    while (decimal > 0) {
+      oktal = (decimal % 8) + oktal;
+      decimal = Math.floor(decimal / 8);
     }
     setOktal(oktal);
   };
-  const binerToHeksadecimal = (binary) => {
-    let decimal = 0;
-    let i = 0;
-    while (binary != 0) {
-      let digit = binary % 10;
-      decimal += digit * Math.pow(2, i);
-      binary = Math.floor(binary / 10);
-      i++;
-    }
-
-    let digits = [];
-    while (decimal != 0) {
+  const decimalToHexadecimal = (decimal) => {
+    let hex = "";
+    while (decimal > 0) {
       let remainder = decimal % 16;
-      if (remainder < 10) {
-        digits.unshift(remainder);
-      } else {
-        digits.unshift(String.fromCharCode(remainder + 55));
-      }
+      let hexDigit =
+        remainder < 10
+          ? remainder.toString()
+          : String.fromCharCode(remainder + 55);
+      hex = hexDigit + hex;
       decimal = Math.floor(decimal / 16);
     }
-
-    let hex = digits.join("");
     setHexadecimal(hex);
   };
 
   return (
-    <main className="min-h-screen min-w-full flex justify-center items-center">
+    <main className="h-full w-full flex justify-center items-center bg-teal-900">
       <div className="flex flex-col justify-center items-center">
         <section className="border border-lime-700 flex flex-col justify-center items-center">
           <h1 className="bg-lime-300 text-black w-full text-center font-mono font-semibold">
-            BINARY TO ALL
+            DECIMAL TO ALL
           </h1>
           <div className="bg-lime-900 p-3 font-mono">
             <form
@@ -87,7 +64,7 @@ const Biner = () => {
               className="flex flex-col justify-center items-center mb-4 my-3"
             >
               <input
-                placeholder="binary number"
+                placeholder="decimal number"
                 className="border border-black text-center rounded-sm"
               />
               <button
@@ -98,8 +75,8 @@ const Biner = () => {
               </button>
             </form>
             <section className="text-white">
-              <div>{`binary = ${binary}`}</div>
               <div>{`decimal = ${decimal}`}</div>
+              <div>{`binary = ${binary}`}</div>
               <div>{`oktal = ${oktal}`}</div>
               <div>{`hexadecimal = ${hexadecimal}`}</div>
             </section>
@@ -113,10 +90,10 @@ const Biner = () => {
             &larr; home
           </Link>
           <Link
-            href={"/decimal-112210010"}
+            href={"/binary-112210010"}
             className="rounded-sm bg-lime-500 px-2 border border-slate-700"
           >
-            &larr; decimal to
+            &larr; binary to
           </Link>
         </section>
       </div>
@@ -124,4 +101,4 @@ const Biner = () => {
   );
 };
 
-export default Biner;
+export default Decimal;
