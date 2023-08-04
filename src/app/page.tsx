@@ -8,9 +8,9 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    // if (pathname == "/") {
-    //   router.push("/decimal");
-    // }
+    if (pathname == "/") {
+      router.push("/decimal");
+    }
   }, [pathname, router]);
 
   return (
