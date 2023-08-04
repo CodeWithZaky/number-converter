@@ -14,7 +14,7 @@ export default function Home() {
   }, [pathname, router]);
 
   return (
-    <div className="w-full h-full text-5xl font-bold flex justify-center items-center text-white">
+    <div className="w-full h-full text-5xl font-bold flex justify-center items-center">
       LOADING...
     </div>
   );
