@@ -74,7 +74,7 @@ const Biner = () => {
   };
 
   return (
-    <section className="h-full w-[70%] mx-auto rounded-md border border-emerald-400 bg-emerald-900 flex flex-col justify-center items-center">
+    <section className="h-auto w-[70%] mx-auto rounded-md border border-emerald-400 bg-emerald-900 flex flex-col justify-center items-center transition-all">
       <h1 className="bg-emerald-800 text-slate-300 w-full py-4 mb-5 text-center font-semibold">
         BINARY TO ALL
       </h1>
@@ -94,22 +94,22 @@ const Biner = () => {
             submit
           </button>
         </form>
-        <div className="text-white my-10">
-          <div className="flex w-full border-y">
-            <p className="w-1/3">binary</p>
-            <p className="w-2/3">{`: ${binary}`}</p>
+        <div className="text-white my-10 space-y-2">
+          <div className="flex flex-col w-full">
+            <p className="">binary</p>
+            <p className="w-full bg-black/50 px-2 rounded-sm">{`${binary}`}</p>
           </div>
-          <div className="flex w-full border-b">
-            <p className="w-1/3">oktal</p>
-            <p className="w-2/3">{`: ${oktal}`}</p>
+          <div className="flex flex-col w-full">
+            <p className="">oktal</p>
+            <p className="w-full bg-black/50 px-2 rounded-sm">{`${oktal}`}</p>
           </div>
-          <div className="flex w-full border-b">
-            <p className="w-1/3">decimal</p>
-            <p className="w-2/3">{`: ${decimal}`}</p>
+          <div className="flex flex-col w-full">
+            <p className="">decimal</p>
+            <p className="w-full bg-black/50 px-2 rounded-sm">{`${decimal}`}</p>
           </div>
-          <div className="flex w-full border-b">
-            <p className="w-1/3">hexadecimal</p>
-            <p className="w-2/3">{`: ${hexadecimal}`}</p>
+          <div className="flex flex-col w-full">
+            <p className="">hexadecimal</p>
+            <p className="w-full bg-black/50 px-2 rounded-sm">{`${hexadecimal}`}</p>
           </div>
         </div>
       </div>

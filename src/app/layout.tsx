@@ -1,5 +1,6 @@
 import "./globals.css";
 import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,14 +16,18 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className="h-full">
         <div className="container-none h-full w-full flex flex-col justify-between items-center">
-          <div className="w-full flex justify-between items-center bg-black text-white p-2">
-            <h1 className="text-3xl text-center font-semibold">
+          <div className="w-full flex justify-between items-center bg-black/90 text-white p-2">
+            <h1 className="text-2xl md:text-3xl text-center font-semibold">
               NUMBER CONVERTION
+              <span className="text-emerald-400">{` by @Zaky`}</span>
             </h1>
           </div>
           <div className="h-full w-full mx-auto flex justify-between items-center">
             <Sidebar classname={"w-1/4"} />
-            <div className="w-3/4">{children}</div>
+            <div className="w-full md:w-3/4 h-full relative flex justify-center items-center">
+              <Navbar />
+              {children}
+            </div>
           </div>
         </div>
       </body>
