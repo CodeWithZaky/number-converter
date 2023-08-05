@@ -43,7 +43,7 @@ const Navbar = () => {
                 key={index}
                 href={`/${link}`}
                 className={clsx(
-                  pathname == "/" + link ? "text-emerald-400" : "text-white",
+                  pathname == `/${link}` ? "text-emerald-400" : "text-white",
                   "bg-white/10 px-4 rounded-sm hover:bg-white/20"
                 )}
               >
