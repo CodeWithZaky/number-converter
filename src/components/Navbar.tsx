@@ -14,7 +14,10 @@ const Navbar = () => {
     setToggle(!toggle);
   };
 
-  const links = ["decimal", "binary"];
+  const links = [
+    { id: 1, title: "decimal", href: "/decimal" },
+    { id: 2, title: "binary", href: "/binary" },
+  ];
 
   return (
     <>
@@ -37,17 +40,17 @@ const Navbar = () => {
           onClick={handleToggle}
         />
         <div className="flex flex-col text-white gap-2 my-2">
-          {links.map((link, index) => {
+          {links.map((link) => {
             return (
               <Link
-                key={index}
-                href={`/${link}`}
+                key={link.id}
+                href={link.href}
                 className={clsx(
-                  pathname == `/${link}` ? "text-emerald-400" : "text-white",
+                  pathname == link.href ? "text-emerald-400" : "text-white",
                   "bg-white/10 px-4 rounded-sm hover:bg-white/20"
                 )}
               >
-                {link}
+                {link.title}
               </Link>
             );
           })}
