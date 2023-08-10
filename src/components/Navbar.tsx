@@ -40,7 +40,7 @@ const Navbar = () => {
       <div
         className={clsx(
           toggle ? "hidden" : "flex",
-          "md:hidden absolute top-1 left-1 items-start bg-black p-2 gap-3 rounded-md cursor-pointer"
+          "md:hidden absolute top-1 left-1 items-start bg-black p-2 gap-3 rounded-md cursor-pointer  border-2 border-white"
         )}
       >
         <Hamburger handleToggle={handleToggle} />
@@ -49,14 +49,14 @@ const Navbar = () => {
         ref={wrapperRef}
         className={clsx(
           toggle ? "flex" : "hidden",
-          "md:hidden absolute top-1 left-1 flex-col items-start bg-black shadow-sm shadow-slate-700 p-2 gap-3 rounded-md "
+          "md:hidden absolute top-1 left-1 flex-col items-start bg-black border-2 border-emerald-400 p-2 gap-3 rounded-md "
         )}
       >
         <IoMdClose
-          className="bg-white rounded-sm text-xl cursor-pointer"
+          className="text-xl bg-white rounded-sm cursor-pointer"
           onClick={handleToggle}
         />
-        <div className="flex flex-col text-white gap-2 my-2">
+        <div className="flex flex-col gap-2 my-2 text-white">
           {links.map((link) => {
             return (
               <Link
@@ -64,7 +64,7 @@ const Navbar = () => {
                 href={link.href}
                 className={clsx(
                   pathname == link.href ? "text-emerald-400" : "text-white",
-                  "bg-white/10 px-4 rounded-sm hover:bg-white/20"
+                  "bg-white/20 px-5 rounded-md hover:bg-white/20"
                 )}
               >
                 {link.title}

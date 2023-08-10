@@ -15,10 +15,10 @@ const Sidebar = ({ classname }) => {
       className={clsx(
         classname,
         "hidden md:flex",
-        "relative border-r-2 h-full flex flex-col items-start justify-start p-1 md:p-5 gap-7 text-lime-800 text-center"
+        "relative border-r-2 h-full flex flex-col items-start justify-start p-1 md:p-5 gap-7 text-lime-800 text-center transition-all"
       )}
     >
-      <div className="flex flex-col text-center gap-2 text-lg tracking-widest w-full">
+      <div className="flex flex-col w-full gap-2 text-lg tracking-widest text-center transition-all">
         {MenuItems.map((e, i) => {
           return (
             <Link
@@ -35,7 +35,7 @@ const Sidebar = ({ classname }) => {
           );
         })}
       </div>
-      <BsShieldFillExclamation className="absolute bottom-2 left-2 text-black text-xl hover:text-2xl cursor-pointer transition-all" />
+      <BsShieldFillExclamation className="absolute text-xl text-black transition-all cursor-pointer bottom-2 left-2 hover:text-2xl" />
     </main>
   );
 };
