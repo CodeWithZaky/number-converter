@@ -9,6 +9,8 @@ const Sidebar = ({ classname }) => {
   const MenuItems = [
     { route: "/decimal", title: "decimal" },
     { route: "/binary", title: "binary" },
+    { route: "/oktal", title: "oktal" },
+    { route: "/heksadecimal", title: "heksadecimal" },
   ];
   return (
     <main
@@ -24,11 +26,12 @@ const Sidebar = ({ classname }) => {
             <Link
               key={i}
               href={e.route}
-              className={
+              className={clsx(
                 pathname == e.route
-                  ? "text-emerald-400 transition-all text-start bg-black/90 w-full rounded-r-xl px-2"
-                  : "text-black transition-all text-start bg-black/40 w-full rounded-r-xl px-2"
-              }
+                  ? "text-emerald-100 bg-emerald-900"
+                  : "text-emerald-900 bg-emerald-200",
+                "w-full text-start rounded-r-xl px-2 py-1 font-semibold tracking-wide transition-all"
+              )}
             >
               {e.title}
             </Link>

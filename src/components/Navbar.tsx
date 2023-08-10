@@ -11,6 +11,8 @@ const Navbar = () => {
   const [links] = useState([
     { id: 1, title: "decimal", href: "/decimal" },
     { id: 2, title: "binary", href: "/binary" },
+    { id: 3, title: "oktal", href: "/oktal" },
+    { id: 4, title: "heksadecimal", href: "/heksadecimal" },
   ]);
   const pathname = usePathname();
 
