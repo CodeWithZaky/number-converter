@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex flex-col items-center w-full h-screen container-none">
+        <div className="flex flex-col items-center w-full h-screen bg-white container-none">
           <div className="flex items-center justify-between w-full h-[100px] p-2 text-white bg-black/90 ">
             <h1 className="text-2xl font-semibold text-center md:text-3xl">
               NUMBER CONVERTION
