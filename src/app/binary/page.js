@@ -1,4 +1,5 @@
 "use client";
+import Swal from "sweetalert2";
 import { useState } from "react";
 import ResultComp from "../../components/ResultComp";
 
@@ -11,17 +12,26 @@ const Biner = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const binary = e.target[0].value;
-    if (binary == "") {
-      alert("inputan harus di isi");
+    if (binary === "" || binary == 0) {
+      Swal.fire({
+        icon: "error",
+        title: "masukan tidak boleh kosong!",
+      });
       return;
     }
     if (isNaN(binary)) {
-      alert("masukan harus angka");
+      Swal.fire({
+        icon: "error",
+        title: "masukan harus angka!",
+      });
       return;
     }
     for (let i = 0; i < binary.length; i++) {
       if (binary[i] !== "0" && binary[i] !== "1") {
-        alert("Input bilangan biner tidak valid");
+        Swal.fire({
+          icon: "error",
+          title: "Input bilangan biner tidak valid!",
+        });
         return;
       }
     }
@@ -79,9 +89,9 @@ const Biner = () => {
   };
 
   return (
-    <section className="h-auto w-[70%] mx-auto rounded-md border border-emerald-400 bg-emerald-900 flex flex-col justify-center items-center transition-all">
+    <section className="h-auto w-[70%] mx-auto rounded-sm border border-emerald-400 bg-emerald-900 flex flex-col justify-center items-center transition-all">
       <h1 className="w-full py-4 mb-5 font-semibold text-center bg-emerald-800 text-slate-300">
-        BINARY TO ALL
+        BINARY
       </h1>
       <div className="w-full p-3">
         <form
@@ -94,7 +104,7 @@ const Biner = () => {
           />
           <button
             type="submit"
-            className="px-4 py-1 my-1 text-black border rounded-sm border-slate-900 bg-emerald-500 active:bg-sky-700"
+            className="px-4 py-1 my-1 text-black border rounded-sm bg-emerald-500 border-slate-900 active:bg-sky-700"
           >
             submit
           </button>

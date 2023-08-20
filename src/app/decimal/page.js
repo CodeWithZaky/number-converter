@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import ResultComp from "../../components/ResultComp";
+import Swal from "sweetalert2";
 
 const Decimal = () => {
   const [decimal, setDecimal] = useState(0);
@@ -11,12 +12,18 @@ const Decimal = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let decimal = e.target[0].value;
-    if (decimal == "") {
-      alert("inputan harus di isi");
+    if (decimal === "" || decimal == 0) {
+      Swal.fire({
+        icon: "error",
+        title: "masukan tidak boleh kosong!",
+      });
       return;
     }
     if (isNaN(decimal)) {
-      alert("masukkan harus angka");
+      Swal.fire({
+        icon: "error",
+        title: "masukan harus angka!",
+      });
       return;
     }
     setDecimal(decimal);
@@ -56,9 +63,9 @@ const Decimal = () => {
   };
 
   return (
-    <section className="h-auto w-[70%] mx-auto rounded-md border border-emerald-400 bg-emerald-900 flex flex-col justify-center items-center transition-all">
+    <section className="h-auto w-[70%] mx-auto rounded-sm border border-emerald-400 bg-emerald-900 flex flex-col justify-center items-center transition-all">
       <h1 className="w-full py-4 mb-5 font-semibold text-center bg-emerald-800 text-slate-300">
-        DECIMAL TO ALL
+        DECIMAL
       </h1>
       <div className="w-full p-3">
         <form

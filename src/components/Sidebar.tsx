@@ -30,7 +30,7 @@ const Sidebar = ({ classname }) => {
                 pathname == e.route
                   ? "text-emerald-100 bg-emerald-900"
                   : "text-emerald-900 bg-emerald-200",
-                "w-full text-start rounded-r-xl px-2 py-1 font-semibold tracking-wide transition-all"
+                "w-full text-start rounded-xl px-2 py-1 font-semibold tracking-wide transition-all"
               )}
             >
               {e.title}
