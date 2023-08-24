@@ -12,7 +12,7 @@ const Sidebar = ({ classname }) => {
       className={clsx(
         classname,
         "hidden md:flex",
-        "relative border-r-2 h-full flex flex-col items-start justify-start p-1 md:p-5 gap-7 text-lime-800 text-center transition-all"
+        "relative border-r-2 border-retroBrown/10 h-full flex flex-col items-start justify-start p-1 md:p-5 gap-7 text-center transition-all"
       )}
     >
       <div className="flex flex-col w-full gap-2 text-lg tracking-widest text-center transition-all">
@@ -23,8 +23,8 @@ const Sidebar = ({ classname }) => {
               href={item.route}
               className={clsx(
                 pathname == item.route
-                  ? "text-emerald-100 bg-emerald-900"
-                  : "text-emerald-900 bg-emerald-200",
+                  ? "text-retroWhite bg-retroBrown"
+                  : "text-retroWhite bg-retroBrown/60",
                 "w-full text-start rounded-xl px-2 py-1 font-semibold tracking-wide transition-all"
               )}
             >
@@ -33,7 +33,7 @@ const Sidebar = ({ classname }) => {
           );
         })}
       </div>
-      <BsShieldFillExclamation className="absolute text-xl text-black transition-all cursor-pointer bottom-2 left-2 hover:text-2xl" />
+      <BsShieldFillExclamation className="absolute text-xl transition-all cursor-pointer text-retroBrown bottom-2 left-2 hover:text-2xl" />
     </main>
   );
 };
