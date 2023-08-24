@@ -8,7 +8,7 @@ const Header = () => {
           <a
             href="https://azaku.vercel.app"
             target={"_blank"}
-            className="cursor-pointer hover:text-emerald-500"
+            className="cursor-pointer hover:text-retroPink/90"
           >{` @Zaky`}</a>
         </span>
       </h1>
