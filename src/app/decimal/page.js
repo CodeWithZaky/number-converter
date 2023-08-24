@@ -67,7 +67,7 @@ const Decimal = () => {
     <PageContent
       title={"DECIMAL"}
       handleSubmit={handleSubmit}
-      placeholder={"decimal number"}
+      placeholder={"enter a decimal number"}
     >
       <ResultComp nameNum={"decimal"} result={decimal} />
       <ResultComp nameNum={"binary"} result={binary} />

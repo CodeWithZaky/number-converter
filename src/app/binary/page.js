@@ -93,7 +93,7 @@ const Biner = () => {
     <PageContent
       title={"BINARY"}
       handleSubmit={handleSubmit}
-      placeholder={"binary number"}
+      placeholder={"enter a binary number"}
     >
       <ResultComp nameNum={"binary"} result={binary} />
       <ResultComp nameNum={"decimal"} result={decimal} />
