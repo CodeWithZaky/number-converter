@@ -3,15 +3,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BsShieldFillExclamation } from "react-icons/bs";
 import { clsx } from "clsx";
+import { RouteLinks } from "../tamplates/RouteLinks";
 
 const Sidebar = ({ classname }) => {
   const pathname = usePathname();
-  const MenuItems = [
-    { route: "/decimal", title: "decimal" },
-    { route: "/binary", title: "binary" },
-    { route: "/oktal", title: "oktal" },
-    { route: "/heksadecimal", title: "heksadecimal" },
-  ];
   return (
     <main
       className={clsx(
@@ -21,19 +16,19 @@ const Sidebar = ({ classname }) => {
       )}
     >
       <div className="flex flex-col w-full gap-2 text-lg tracking-widest text-center transition-all">
-        {MenuItems.map((e, i) => {
+        {RouteLinks.map((item, index) => {
           return (
             <Link
-              key={i}
-              href={e.route}
+              key={index}
+              href={item.route}
               className={clsx(
-                pathname == e.route
+                pathname == item.route
                   ? "text-emerald-100 bg-emerald-900"
                   : "text-emerald-900 bg-emerald-200",
                 "w-full text-start rounded-xl px-2 py-1 font-semibold tracking-wide transition-all"
               )}
             >
-              {e.title}
+              {item.title}
             </Link>
           );
         })}

@@ -1,6 +1,6 @@
 import "../../node_modules/tailwindcss/tailwind.css";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import Header from "../components/molecules/Header";
+import LayoutContent from "../components/organism/LayoutContent";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,26 +16,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="flex flex-col items-center w-full h-screen bg-white container-none">
-          <div className="flex items-center justify-between w-full h-[100px] p-2 text-white bg-black/90 ">
-            <h1 className="text-2xl font-semibold text-center md:text-3xl">
-              NUMBER CONVERTION
-              <span className="text-emerald-400">{` by @Zaky`}</span>
-            </h1>
-          </div>
-          <div className="flex items-center justify-between w-full h-full mx-auto">
-            <Sidebar classname={"w-1/4"} />
-            <div className="relative flex items-center justify-center w-full h-full md:w-2/4">
-              <Navbar />
-              {children}
-            </div>
-            <div className="flex-col justify-start hidden w-1/4 h-full gap-5 p-10 border-l md:flex">
-              <ul className="list-decimal list-inside">
-                <h3 className="mb-2 font-semibold">Pentunjuk</h3>
-                <li>masukkan angka pada form di samping</li>
-                <li>klik tombol submit untuk memperoleh hasilnya</li>
-              </ul>
-            </div>
-          </div>
+          <Header />
+          <LayoutContent>{children}</LayoutContent>
         </div>
       </body>
     </html>

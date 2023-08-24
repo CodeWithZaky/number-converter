@@ -1,19 +1,15 @@
 "use client";
+import clsx from "clsx";
+import Hamburger from "../atoms/Hamburger";
 import Link from "next/link";
-import Hamburger from "./Hamburger";
 import { IoMdClose } from "react-icons/io";
 import { useState, useRef, useEffect } from "react";
-import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import { RouteLinks } from "../tamplates/RouteLinks";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  const [links] = useState([
-    { id: 1, title: "decimal", href: "/decimal" },
-    { id: 2, title: "binary", href: "/binary" },
-    { id: 3, title: "oktal", href: "/oktal" },
-    { id: 4, title: "heksadecimal", href: "/heksadecimal" },
-  ]);
+
   const pathname = usePathname();
 
   function useOutsideAlerter(ref: any) {
@@ -59,13 +55,13 @@ const Navbar = () => {
           onClick={handleToggle}
         />
         <div className="flex flex-col gap-2 my-2 text-white">
-          {links.map((link) => {
+          {RouteLinks.map((link, index) => {
             return (
               <Link
-                key={link.id}
-                href={link.href}
+                key={index}
+                href={link.route}
                 className={clsx(
-                  pathname == link.href ? "text-emerald-400" : "text-white",
+                  pathname == link.route ? "text-emerald-400" : "text-white",
                   "bg-white/20 px-5 rounded-md hover:bg-white/20"
                 )}
               >

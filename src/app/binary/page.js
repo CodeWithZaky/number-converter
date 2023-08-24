@@ -1,7 +1,8 @@
 "use client";
 import Swal from "sweetalert2";
 import { useState } from "react";
-import ResultComp from "../../components/ResultComp";
+import ResultComp from "../../components/molecules/ResultComp";
+import PageContent from "../../components/organism/PageContent";
 
 const Biner = () => {
   const [binary, setBiner] = useState(0);
@@ -89,34 +90,16 @@ const Biner = () => {
   };
 
   return (
-    <section className="h-auto w-[70%] mx-auto rounded-sm border border-emerald-400 bg-emerald-900 flex flex-col justify-center items-center transition-all">
-      <h1 className="w-full py-4 mb-5 font-semibold text-center bg-emerald-800 text-slate-300">
-        BINARY
-      </h1>
-      <div className="w-full p-3">
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col items-start justify-center my-3 mb-4"
-        >
-          <input
-            placeholder="binary number"
-            className="w-full py-2 text-center border border-black rounded-sm"
-          />
-          <button
-            type="submit"
-            className="px-4 py-1 my-1 text-black border rounded-sm bg-emerald-500 border-slate-900 active:bg-sky-700"
-          >
-            submit
-          </button>
-        </form>
-        <div className="my-10 space-y-2 text-white">
-          <ResultComp nameNum={"binary"} result={binary} />
-          <ResultComp nameNum={"decimal"} result={decimal} />
-          <ResultComp nameNum={"oktal"} result={oktal} />
-          <ResultComp nameNum={"hexadecimal"} result={hexadecimal} />
-        </div>
-      </div>
-    </section>
+    <PageContent
+      title={"BINARY"}
+      handleSubmit={handleSubmit}
+      placeholder={"binary number"}
+    >
+      <ResultComp nameNum={"binary"} result={binary} />
+      <ResultComp nameNum={"decimal"} result={decimal} />
+      <ResultComp nameNum={"oktal"} result={oktal} />
+      <ResultComp nameNum={"hexadecimal"} result={hexadecimal} />
+    </PageContent>
   );
 };
 
