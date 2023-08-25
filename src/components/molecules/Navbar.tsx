@@ -34,11 +34,11 @@ const Navbar = () => {
   useOutsideAlerter(wrapperRef);
 
   return (
-    <>
+    <div>
       <div
         className={clsx(
           toggle ? "hidden" : "flex",
-          "md:hidden absolute top-1 left-1 items-start bg-black p-2 gap-3 rounded-md cursor-pointer  border-2 border-retroOrange"
+          "md:hidden absolute top-1 right-1 items-start bg-black p-2 gap-3 rounded-md cursor-pointer  border-2 border-retroOrange"
         )}
       >
         <Hamburger handleToggle={handleToggle} />
@@ -47,14 +47,14 @@ const Navbar = () => {
         ref={wrapperRef}
         className={clsx(
           toggle ? "flex" : "hidden",
-          "md:hidden absolute top-1 left-1 flex-col items-start bg-retroBrown border-2 border-retroOrange p-2 gap-3 rounded-md "
+          "md:hidden absolute top-1 right-1 flex-col items-start bg-retroBrown border-2 border-retroOrange p-2 gap-3 rounded-md "
         )}
       >
         <IoMdClose
-          className="text-xl rounded-sm cursor-pointer bg-retroOrange"
+          className="self-end text-xl rounded-sm cursor-pointer bg-retroOrange"
           onClick={handleToggle}
         />
-        <div className="flex flex-col gap-2 my-2">
+        <ul className="flex flex-col gap-2 my-2">
           {RouteLinks.map((item, index) => {
             return (
               <Link
@@ -71,9 +71,9 @@ const Navbar = () => {
               </Link>
             );
           })}
-        </div>
+        </ul>
       </div>
-    </>
+    </div>
   );
 };
 
