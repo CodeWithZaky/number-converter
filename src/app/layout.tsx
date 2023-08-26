@@ -1,6 +1,6 @@
 import "../../node_modules/tailwindcss/tailwind.css";
-import Header from "../components/molecules/Header";
-import LayoutContent from "../components/organism/LayoutContent";
+import Header from "@/components/molecules/Header";
+import LayoutContent from "@/components/organism/LayoutContent";
 
 export const metadata = {
   title: "Create Next App",

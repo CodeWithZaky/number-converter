@@ -1,11 +1,11 @@
 "use client";
 import Swal from "sweetalert2";
 import { useState } from "react";
-import ResultComp from "../../components/molecules/ResultComp";
-import PageContent from "../../components/organism/PageContent";
-import { useBinaryToDecimal } from "@/src/hooks/binary/useBinaryToDecimal";
-import { useBinaryToOktal } from "@/src/hooks/binary/useBinaryToOktal";
-import { useBinaryToHexadecimal } from "@/src/hooks/binary/useBinaryToHexadecimal";
+import ResultComp from "@/components/molecules/ResultComp";
+import PageContent from "@/components/organism/PageContent";
+import { useBinaryToDecimal } from "@/hooks/binary/useBinaryToDecimal";
+import { useBinaryToOktal } from "@/hooks/binary/useBinaryToOktal";
+import { useBinaryToHexadecimal } from "@/hooks/binary/useBinaryToHexadecimal";
 
 const Biner = () => {
   const [binary, setBiner] = useState<string>("0");
