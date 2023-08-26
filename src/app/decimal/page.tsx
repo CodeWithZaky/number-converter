@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
+import Swal from "sweetalert2";
+import ResultComp from "@/components/molecules/ResultComp";
 import PageContent from "@/components/organism/PageContent";
 import { useDecimalToBinary } from "@/hooks/decimal/useDecimalToBinary";
 import { useDecimalToOktal } from "@/hooks/decimal/useDecimalToOktal";
 import { useDecimalToHexadecimal } from "@/hooks/decimal/useDecimalToHexadecimal";
-import Swal from "sweetalert2";
-import ResultComp from "@/components/molecules/ResultComp";
 
 const Decimal = () => {
   const [decimal, setDecimal] = useState(0);
