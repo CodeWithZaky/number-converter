@@ -1,10 +1,11 @@
 import { useState } from "react";
 
 export const useDecimalToHexadecimal = () => {
-  const [hexadecimal, setHexadecimal] = useState(0);
+  const [hexadecimal, setHexadecimal] = useState<string>("0");
 
-  const setDecimalToHexadecimal = (decimal) => {
+  const setDecimalToHexadecimal = (dec: string) => {
     let hex = "";
+    let decimal = parseInt(dec);
     while (decimal > 0) {
       let remainder = decimal % 16;
       let hexDigit =
@@ -14,7 +15,7 @@ export const useDecimalToHexadecimal = () => {
       hex = hexDigit + hex;
       decimal = Math.floor(decimal / 16);
     }
-    setHexadecimal(hex);
+    setHexadecimal(hex.toString());
   };
 
   return { hexadecimal, setDecimalToHexadecimal };
