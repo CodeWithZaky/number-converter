@@ -16,14 +16,14 @@ const Biner = () => {
     if (binary === "" || binary == 0) {
       Swal.fire({
         icon: "error",
-        title: "masukan tidak boleh kosong!",
+        title: "input cannot be empty!",
       });
       return;
     }
     if (isNaN(binary)) {
       Swal.fire({
         icon: "error",
-        title: "masukan harus angka!",
+        title: "input must be a number!",
       });
       return;
     }
@@ -31,7 +31,7 @@ const Biner = () => {
       if (binary[i] !== "0" && binary[i] !== "1") {
         Swal.fire({
           icon: "error",
-          title: "Input bilangan biner tidak valid!",
+          title: "Invalid binary input!",
         });
         return;
       }
