@@ -13,7 +13,7 @@ const Decimal = () => {
   const { oktal, setDecimalToOktal } = useDecimalToOktal();
   const { hexadecimal, setDecimalToHexadecimal } = useDecimalToHexadecimal();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     let decimal = e.target[0].value;
     if (decimal === "" || decimal == 0) {
