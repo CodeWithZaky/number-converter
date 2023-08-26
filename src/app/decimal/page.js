@@ -16,14 +16,14 @@ const Decimal = () => {
     if (decimal === "" || decimal == 0) {
       Swal.fire({
         icon: "error",
-        title: "masukan tidak boleh kosong!",
+        title: "input cannot be empty!",
       });
       return;
     }
     if (isNaN(decimal)) {
       Swal.fire({
         icon: "error",
-        title: "masukan harus angka!",
+        title: "input must be a number!",
       });
       return;
     }
