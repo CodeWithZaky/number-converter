@@ -1,14 +1,17 @@
 "use client";
 import { useState } from "react";
-import ResultComp from "../../components/molecules/ResultComp";
+import PageContent from "@/components/organism/PageContent";
+import { useDecimalToBinary } from "@/hooks/decimal/useDecimalToBinary";
+import { useDecimalToOktal } from "@/hooks/decimal/useDecimalToOktal";
+import { useDecimalToHexadecimal } from "@/hooks/decimal/useDecimalToHexadecimal";
 import Swal from "sweetalert2";
-import PageContent from "../../components/organism/PageContent";
+import ResultComp from "@/components/molecules/ResultComp";
 
 const Decimal = () => {
   const [decimal, setDecimal] = useState(0);
-  const [binary, setBiner] = useState(0);
-  const [oktal, setOktal] = useState(0);
-  const [hexadecimal, setHexadecimal] = useState(0);
+  const { binary, setDecimalToBinary } = useDecimalToBinary();
+  const { oktal, setDecimalToOktal } = useDecimalToOktal();
+  const { hexadecimal, setDecimalToHexadecimal } = useDecimalToHexadecimal();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,39 +31,9 @@ const Decimal = () => {
       return;
     }
     setDecimal(decimal);
-    decimalToBiner(decimal);
-    decimalToOktal(decimal);
-    decimalToHexadecimal(decimal);
-  };
-  const decimalToBiner = (decimal) => {
-    let binaryNumber = "";
-    while (decimal > 0) {
-      let remainder = decimal % 2;
-      binaryNumber = remainder + binaryNumber;
-      decimal = Math.floor(decimal / 2);
-    }
-    setBiner(binaryNumber);
-  };
-  const decimalToOktal = (decimal) => {
-    let oktal = "";
-    while (decimal > 0) {
-      oktal = (decimal % 8) + oktal;
-      decimal = Math.floor(decimal / 8);
-    }
-    setOktal(oktal);
-  };
-  const decimalToHexadecimal = (decimal) => {
-    let hex = "";
-    while (decimal > 0) {
-      let remainder = decimal % 16;
-      let hexDigit =
-        remainder < 10
-          ? remainder.toString()
-          : String.fromCharCode(remainder + 55);
-      hex = hexDigit + hex;
-      decimal = Math.floor(decimal / 16);
-    }
-    setHexadecimal(hex);
+    setDecimalToBinary(decimal);
+    setDecimalToOktal(decimal);
+    setDecimalToHexadecimal(decimal);
   };
 
   return (
