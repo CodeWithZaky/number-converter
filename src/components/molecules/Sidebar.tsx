@@ -4,15 +4,22 @@ import { usePathname } from "next/navigation";
 import { BsShieldFillExclamation } from "react-icons/bs";
 import { clsx } from "clsx";
 import { RouteLinks } from "../tamplates/RouteLinks";
+import { useState } from "react";
 
 const Sidebar = ({ classname }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleActive = () => {
+    setIsActive(!isActive);
+  };
+
   const pathname = usePathname();
   return (
     <div
       className={clsx(
         classname,
         "hidden md:flex",
-        "relative border-r-2 border-retroBrown/10 h-full flex flex-col items-start justify-start p-1 md:p-5 gap-7 text-center transition-all"
+        "border-r-2 border-retroBrown/10 h-full flex flex-col items-start justify-between p-1 md:p-5 gap-7 text-center transition-all"
       )}
     >
       <ul className="flex flex-col w-full gap-2 text-lg tracking-widest text-center transition-all">
@@ -33,7 +40,22 @@ const Sidebar = ({ classname }) => {
           );
         })}
       </ul>
-      <BsShieldFillExclamation className="absolute text-xl transition-all cursor-pointer text-retroBrown bottom-2 left-2 hover:text-2xl" />
+      <div className="relative">
+        {isActive ? (
+          <p className="absolute px-2 py-1 text-sm transition-all rounded-t rounded-r left-5 -top-6 whitespace-nowrap bg-retroBrown/90 text-retroBlue">
+            Ahmad Zaky Ubaidillah @2023
+          </p>
+        ) : (
+          ""
+        )}
+        <BsShieldFillExclamation
+          onClick={handleActive}
+          className={clsx(
+            isActive ? "text-2xl" : "text-xl",
+            "transition-all cursor-pointer text-retroBrown"
+          )}
+        />
+      </div>
     </div>
   );
 };
