@@ -1,6 +1,6 @@
 "use client";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ResultComp from "@/src/components/fragments/ResultComp";
 import PageLayout from "@/src/components/layouts/PageLayout";
 import { useBinaryToDecimal } from "@/hooks/binary/useBinaryToDecimal";
@@ -8,14 +8,25 @@ import { useBinaryToOktal } from "@/hooks/binary/useBinaryToOktal";
 import { useBinaryToHexadecimal } from "@/hooks/binary/useBinaryToHexadecimal";
 
 const Biner = () => {
-  const [binary, setBiner] = useState<string>("0");
+  const [binary, setBinary] = useState<string>("0");
   const { decimal, setBinaryToDecimal } = useBinaryToDecimal();
   const { oktal, setBinaryToOktal } = useBinaryToOktal();
   const { hexadecimal, setBinaryToHeksadecimal } = useBinaryToHexadecimal();
 
+  const handleInputChange = useCallback(
+    (binary: string) => {
+      setBinary(binary);
+      setBinaryToDecimal(binary);
+      setBinaryToOktal(binary);
+      setBinaryToHeksadecimal(binary);
+    },
+    [setBinary, setBinaryToDecimal, setBinaryToOktal, setBinaryToHeksadecimal]
+  );
+
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const binary = e.target[0].value;
+
     if (binary === "" || binary == 0) {
       Swal.fire({
         icon: "error",
@@ -23,6 +34,7 @@ const Biner = () => {
       });
       return;
     }
+
     if (isNaN(binary)) {
       Swal.fire({
         icon: "error",
@@ -30,6 +42,7 @@ const Biner = () => {
       });
       return;
     }
+
     for (let i = 0; i < binary.length; i++) {
       if (binary[i] !== "0" && binary[i] !== "1") {
         Swal.fire({
@@ -39,10 +52,8 @@ const Biner = () => {
         return;
       }
     }
-    setBiner(binary);
-    setBinaryToDecimal(binary);
-    setBinaryToOktal(binary);
-    setBinaryToHeksadecimal(binary);
+
+    handleInputChange(binary);
   };
 
   return (
