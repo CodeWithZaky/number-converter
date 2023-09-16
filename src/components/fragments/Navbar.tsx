@@ -1,11 +1,11 @@
 "use client";
 import clsx from "clsx";
-import Hamburger from "../atoms/Hamburger";
+import Hamburger from "../elements/Hamburger";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { RouteLinks } from "../tamplates/RouteLinks";
+import { RouteLinks } from "../data/RouteLinks";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BsShieldFillExclamation } from "react-icons/bs";
 import { clsx } from "clsx";
-import { RouteLinks } from "../tamplates/RouteLinks";
+import { RouteLinks } from "../data/RouteLinks";
 import { Fragment, useState } from "react";
 
 const Sidebar = ({ classname }) => {
