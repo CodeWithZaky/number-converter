@@ -4,16 +4,17 @@ import { usePathname } from "next/navigation";
 import { BsShieldFillExclamation } from "react-icons/bs";
 import { clsx } from "clsx";
 import { RouteLinks } from "../tamplates/RouteLinks";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 const Sidebar = ({ classname }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const handleActive = () => {
+  const pathname = usePathname();
+
+  const onActive = () => {
     setIsActive(!isActive);
   };
 
-  const pathname = usePathname();
   return (
     <div
       className={clsx(
@@ -25,31 +26,30 @@ const Sidebar = ({ classname }) => {
       <ul className="flex flex-col w-full gap-2 text-lg tracking-widest text-center transition-all">
         {RouteLinks.map((item, index) => {
           return (
-            <Link
-              key={index}
-              href={item.route}
-              className={clsx(
-                pathname == item.route
-                  ? "text-retroWhite bg-retroBrown"
-                  : "text-retroWhite bg-retroBrown/60",
-                "w-full text-start rounded-md px-2 py-1 font-semibold tracking-wide transition-all"
-              )}
-            >
-              {item.title}
-            </Link>
+            <Fragment key={index}>
+              <Link
+                href={item.route}
+                className={clsx(
+                  pathname == item.route
+                    ? "text-retroWhite bg-retroBrown"
+                    : "text-retroWhite bg-retroBrown/60",
+                  "w-full text-start rounded-md px-2 py-1 font-semibold tracking-wide transition-all"
+                )}
+              >
+                {item.title}
+              </Link>
+            </Fragment>
           );
         })}
       </ul>
       <div className="relative">
-        {isActive ? (
+        {isActive && (
           <p className="absolute px-2 py-1 text-sm transition-all rounded-t rounded-r left-5 -top-6 whitespace-nowrap bg-retroBrown/90 text-retroBlue">
             Ahmad Zaky Ubaidillah @2023
           </p>
-        ) : (
-          ""
         )}
         <BsShieldFillExclamation
-          onClick={handleActive}
+          onClick={onActive}
           className={clsx(
             isActive ? "text-2xl" : "text-xl",
             "transition-all cursor-pointer text-retroBrown"
