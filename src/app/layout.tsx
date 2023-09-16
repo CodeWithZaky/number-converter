@@ -1,6 +1,6 @@
 import "../../node_modules/tailwindcss/tailwind.css";
-import Header from "@/components/molecules/Header";
-import LayoutContent from "@/components/organism/LayoutContent";
+import Header from "@/src/components/fragments/Header";
+import AppLayout from "@/src/components/layouts/AppLayout";
 
 export const metadata = {
   title: "Create Next App",
@@ -17,7 +17,7 @@ export default function RootLayout({
       <body>
         <div className="flex flex-col items-center w-full h-screen bg-retroWhite container-none">
           <Header />
-          <LayoutContent>{children}</LayoutContent>
+          <AppLayout>{children}</AppLayout>
         </div>
       </body>
     </html>
