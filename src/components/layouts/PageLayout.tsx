@@ -1,7 +1,6 @@
-import React from "react";
-import Form from "../molecules/Form";
+import Form from "../fragments/Form";
 
-const PageContent = ({ children, ...pageProps }) => {
+const PageLayout = ({ children, ...pageProps }) => {
   return (
     <section className="h-auto w-[70%] mx-auto rounded-md border border-retroOrange bg-retroBrown flex flex-col justify-center items-center transition-all">
       <h1 className="w-full py-3 mb-5 text-xl font-semibold text-center border-b rounded-t-md bg-retroBrown text-retroWhite border-retroOrange">
@@ -18,4 +17,4 @@ const PageContent = ({ children, ...pageProps }) => {
   );
 };
 
-export default PageContent;
+export default PageLayout;
