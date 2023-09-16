@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../molecules/Navbar";
-import Sidebar from "../molecules/Sidebar";
-import Guides from "../molecules/Guides";
+import Navbar from "../fragments/Navbar";
+import Sidebar from "../fragments/Sidebar";
+import Guides from "../fragments/Guides";
 
-const LayoutContent = ({ children }) => {
+const LayoutApp = ({ children }) => {
   return (
     <div className="flex items-center justify-between w-full h-full mx-auto">
       <Sidebar classname={"w-1/4"} />
@@ -16,4 +16,4 @@ const LayoutContent = ({ children }) => {
   );
 };
 
-export default LayoutContent;
+export default LayoutApp;

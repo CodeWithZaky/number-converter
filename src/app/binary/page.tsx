@@ -1,8 +1,8 @@
 "use client";
 import Swal from "sweetalert2";
 import { useState } from "react";
-import ResultComp from "@/components/molecules/ResultComp";
-import PageContent from "@/components/organism/PageContent";
+import ResultComp from "@/src/components/fragments/ResultComp";
+import PageLayout from "@/src/components/layouts/PageLayout";
 import { useBinaryToDecimal } from "@/hooks/binary/useBinaryToDecimal";
 import { useBinaryToOktal } from "@/hooks/binary/useBinaryToOktal";
 import { useBinaryToHexadecimal } from "@/hooks/binary/useBinaryToHexadecimal";
@@ -46,7 +46,7 @@ const Biner = () => {
   };
 
   return (
-    <PageContent
+    <PageLayout
       title={"BINARY"}
       handleSubmit={handleSubmit}
       placeholder={"enter a binary number"}
@@ -55,7 +55,7 @@ const Biner = () => {
       <ResultComp nameNum={"decimal"} result={decimal} />
       <ResultComp nameNum={"oktal"} result={oktal} />
       <ResultComp nameNum={"hexadecimal"} result={hexadecimal} />
-    </PageContent>
+    </PageLayout>
   );
 };
 

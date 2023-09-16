@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import ResultComp from "@/components/molecules/ResultComp";
-import PageContent from "@/components/organism/PageContent";
+import ResultComp from "@/src/components/fragments/ResultComp";
+import PageLayout from "@/src/components/layouts/PageLayout";
 import { useDecimalToBinary } from "@/hooks/decimal/useDecimalToBinary";
 import { useDecimalToOktal } from "@/hooks/decimal/useDecimalToOktal";
 import { useDecimalToHexadecimal } from "@/hooks/decimal/useDecimalToHexadecimal";
@@ -37,7 +37,7 @@ const Decimal = () => {
   };
 
   return (
-    <PageContent
+    <PageLayout
       title={"DECIMAL"}
       handleSubmit={handleSubmit}
       placeholder={"enter a decimal number"}
@@ -46,7 +46,7 @@ const Decimal = () => {
       <ResultComp nameNum={"binary"} result={binary} />
       <ResultComp nameNum={"oktal"} result={oktal} />
       <ResultComp nameNum={"hexadecimal"} result={hexadecimal} />
-    </PageContent>
+    </PageLayout>
   );
 };
 

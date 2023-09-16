@@ -1,5 +1,5 @@
-import Button from "../atoms/Button";
-import Input from "../atoms/Input";
+import Button from "../elements/Button";
+import Input from "../elements/Input";
 
 const Form = ({ handleSubmit, placeholder }) => {
   return (
