@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Swal from "sweetalert2";
 import ResultComp from "@/src/components/fragments/ResultComp";
 import PageLayout from "@/src/components/layouts/PageLayout";
@@ -13,27 +13,32 @@ const Decimal = () => {
   const { oktal, setDecimalToOktal } = useDecimalToOktal();
   const { hexadecimal, setDecimalToHexadecimal } = useDecimalToHexadecimal();
 
+  const handleInputChange = useCallback(
+    (inputValue: string) => {
+      setDecimal(Number(inputValue));
+      setDecimalToBinary(inputValue);
+      setDecimalToOktal(inputValue);
+      setDecimalToHexadecimal(inputValue);
+    },
+    [setDecimal, setDecimalToBinary, setDecimalToOktal, setDecimalToHexadecimal]
+  );
+
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    let decimal = e.target[0].value;
-    if (decimal === "" || decimal == 0) {
+    const inputValue = e.target[0].value;
+    if (inputValue === "" || inputValue == 0) {
       Swal.fire({
         icon: "error",
-        title: "input cannot be empty!",
+        title: "Input cannot be empty!",
       });
-      return;
-    }
-    if (isNaN(decimal)) {
+    } else if (isNaN(inputValue)) {
       Swal.fire({
         icon: "error",
-        title: "input must be a number!",
+        title: "Input must be a number!",
       });
-      return;
+    } else {
+      handleInputChange(inputValue);
     }
-    setDecimal(decimal);
-    setDecimalToBinary(decimal);
-    setDecimalToOktal(decimal);
-    setDecimalToHexadecimal(decimal);
   };
 
   return (
