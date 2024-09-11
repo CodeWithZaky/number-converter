@@ -6,7 +6,7 @@ const Header = () => {
         <span className="text-retroPink">
           {" by"}
           <a
-            href="https://azaku.vercel.app"
+            href="https://codewithzaky.vercel.app"
             target={"_blank"}
             className="cursor-pointer hover:text-retroPink/90"
           >{` @Zaky`}</a>
